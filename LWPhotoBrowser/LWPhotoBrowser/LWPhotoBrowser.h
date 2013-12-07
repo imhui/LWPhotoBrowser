@@ -10,4 +10,6 @@
 
 @interface LWPhotoBrowser : UIViewController
 
+@property (nonatomic, strong) NSArray *photos;
+
 @end
