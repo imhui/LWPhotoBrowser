@@ -81,16 +81,16 @@
     LWPhoto *photo = nil;
     
     if (indexPath.row == 0) {
-        photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://b.hiphotos.baidu.com/image/w%3D2048/sign=164d1e120b55b3199cf9857577918326/4d086e061d950a7bbb861cd70bd162d9f2d3c976.jpg"]];
-        photo.caption = @"埃菲尔铁塔风景图片";
+        photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://g.hiphotos.baidu.com/image/w%3D2048/sign=9f057fd7d52a60595210e61a1c0c349b/caef76094b36acafe0d705e27ed98d1001e99cfd.jpg"]];
+        photo.caption = @"埃菲尔铁塔";
         [photos addObject:photo];
         
         photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://f.hiphotos.baidu.com/image/w%3D2048/sign=9463f8ec39c79f3d8fe1e3308e99cc11/7a899e510fb30f241ff95110ca95d143ad4b0345.jpg"]];
         photo.caption = @"菲尼斯泰尔布列塔尼半岛";
         [photos addObject:photo];
         
-        photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://g.hiphotos.baidu.com/image/w%3D2048/sign=f73e15f09e82d158bb825eb1b43218d8/c2fdfc039245d688f20821baa6c27d1ed21b24a1.jpg"]];
-        photo.caption = @"科西嘉岛普丽亚挪";
+        photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://d.hiphotos.baidu.com/image/w%3D2048/sign=974b1a66d488d43ff0a996f24926d31b/4afbfbedab64034f13b87f15adc379310a551daf.jpg"]];
+        photo.caption = @"南科西嘉省阿雅克肖海滩";
         [photos addObject:photo];
         
         photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://h.hiphotos.baidu.com/image/w%3D2048/sign=17d2c536347adab43dd01c43bfecb21c/503d269759ee3d6dba30f1d541166d224f4ade3e.jpg"]];
