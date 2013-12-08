@@ -8,8 +8,9 @@ An iOS photo Browser
 LWPhotoBrowser looks like the photo browser of the native Photos app in iOS. It can display one or more images from web URLs, file paths or UIImage Objects. It supports photos zooming and panning. Works on iOS 5+.
 
 
-<img src="https://raw.github.com/imhui/LWPhotoBrowser/master/screenshots/1.png" alt="Drawing" style="width: 300px;"/>
-<img src="https://raw.github.com/imhui/LWPhotoBrowser/master/screenshots/2.png" alt="Drawing" style="width: 300px;"/>
+
+![screenshot1](https://raw.github.com/imhui/LWPhotoBrowser/master/screenshots/1.png)
+![screenshot2](https://raw.github.com/imhui/LWPhotoBrowser/master/screenshots/2.png)
 
 #### init LWPhoto
 ```
