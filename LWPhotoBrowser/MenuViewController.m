@@ -52,7 +52,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -64,7 +64,13 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    cell.textLabel.text = @"Remote Image";
+    if (indexPath.row == 0) {
+        cell.textLabel.text = @"Remote Image";
+    }
+    else if (indexPath.row == 1) {
+        cell.textLabel.text = @"Local Image";
+    }
+    
     
     return cell;
 }
@@ -72,30 +78,50 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSMutableArray *photos = [NSMutableArray arrayWithCapacity:0];
-    LWPhoto *photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://e.hiphotos.baidu.com/image/h%3D1200%3Bcrop%3D0%2C0%2C1920%2C1200/sign=19af96f879899e51678e3e167297e250/5d6034a85edf8db1e74639610b23dd54564e744e.jpg"]];
-    photo.caption = @"111";
-    [photos addObject:photo];
+    LWPhoto *photo = nil;
     
-    photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://b.hiphotos.baidu.com/image/w%3D2048/sign=fa485779fa1986184147e8847ed52f73/a1ec08fa513d269710bdda4557fbb2fb4316d8b8.jpg"]];
-    photo.caption = @"222";
-    [photos addObject:photo];
+    if (indexPath.row == 0) {
+        photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://b.hiphotos.baidu.com/image/w%3D2048/sign=164d1e120b55b3199cf9857577918326/4d086e061d950a7bbb861cd70bd162d9f2d3c976.jpg"]];
+        photo.caption = @"埃菲尔铁塔风景图片";
+        [photos addObject:photo];
+        
+        photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://f.hiphotos.baidu.com/image/w%3D2048/sign=9463f8ec39c79f3d8fe1e3308e99cc11/7a899e510fb30f241ff95110ca95d143ad4b0345.jpg"]];
+        photo.caption = @"菲尼斯泰尔布列塔尼半岛";
+        [photos addObject:photo];
+        
+        photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://g.hiphotos.baidu.com/image/w%3D2048/sign=f73e15f09e82d158bb825eb1b43218d8/c2fdfc039245d688f20821baa6c27d1ed21b24a1.jpg"]];
+        photo.caption = @"科西嘉岛普丽亚挪";
+        [photos addObject:photo];
+        
+        photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://h.hiphotos.baidu.com/image/w%3D2048/sign=17d2c536347adab43dd01c43bfecb21c/503d269759ee3d6dba30f1d541166d224f4ade3e.jpg"]];
+        [photos addObject:photo];
+        photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://b.hiphotos.baidu.com/image/w%3D2048/sign=a66c6107ba99a9013b355c3629ad0b7b/0df3d7ca7bcb0a464b43362a6963f6246b60af44.jpg"]];
+        [photos addObject:photo];
+        photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://a.hiphotos.baidu.com/image/w%3D2048/sign=920393380b24ab18e016e63701c2e7cd/8b82b9014a90f603b3e8ea593b12b31bb051ed50.jpg"]];
+        [photos addObject:photo];
+        photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://f.hiphotos.baidu.com/image/w%3D2048/sign=b4f1367c9a22720e7bcee5fa4ff30a46/5243fbf2b21193130d786cae67380cd791238df1.jpg"]];
+        [photos addObject:photo];
+        photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://a.hiphotos.baidu.com/image/w%3D2048/sign=721ab42d938fa0ec7fc7630d12af58ee/d52a2834349b033b4b7f8ac417ce36d3d539bd3c.jpg"]];
+        [photos addObject:photo];
+    }
+    else if (indexPath.row == 1) {
+        photo = [LWPhoto photoWithFilePath:[[NSBundle mainBundle] pathForResource:@"1" ofType:@"jpg"]];
+        [photos addObject:photo];
+        photo = [LWPhoto photoWithFilePath:[[NSBundle mainBundle] pathForResource:@"2" ofType:@"jpg"]];
+        [photos addObject:photo];
+        photo = [LWPhoto photoWithFilePath:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"jpg"]];
+        [photos addObject:photo];
+        photo = [LWPhoto photoWithFilePath:[[NSBundle mainBundle] pathForResource:@"4" ofType:@"jpg"]];
+        [photos addObject:photo];
+        photo = [LWPhoto photoWithFilePath:[[NSBundle mainBundle] pathForResource:@"5" ofType:@"jpg"]];
+        [photos addObject:photo];
+        photo = [LWPhoto photoWithFilePath:[[NSBundle mainBundle] pathForResource:@"6" ofType:@"jpg"]];
+        [photos addObject:photo];
+    }
     
-    photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://e.hiphotos.baidu.com/image/w%3D2048/sign=a70abe908601a18bf0eb154faa170508/42166d224f4a20a46afd047b91529822730ed0ae.jpg"]];
-    [photos addObject:photo];
-    photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://f.hiphotos.baidu.com/image/w%3D1366%3Bcrop%3D0%2C0%2C1366%2C768/sign=563bbdc5f9dcd100cd9cfc2244bd7c73/cf1b9d16fdfaaf519e2296778d5494eef11f7a30.jpg"]];
-    [photos addObject:photo];
-    photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://c.hiphotos.baidu.com/image/w%3D2048/sign=a098c1350b24ab18e016e63701c2e7cd/8b82b9014a90f6038173b8543b12b31bb151ede6.jpg"]];
-    [photos addObject:photo];
-    photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://f.hiphotos.baidu.com/image/w%3D2048/sign=6551f0934034970a4773172fa1f2d0c8/50da81cb39dbb6fd9fe4dd9a0824ab18962b37ca.jpg"]];
-    [photos addObject:photo];
-    photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://e.hiphotos.baidu.com/image/w%3D2048/sign=29a07b944610b912bfc1f1fef7c5fd03/d043ad4bd11373f066b353b0a50f4bfbfbed0414.jpg"]];
-    [photos addObject:photo];
-    photo = [LWPhoto photoWithURL:[NSURL URLWithString:@"http://c.hiphotos.baidu.com/image/w%3D1366%3Bcrop%3D0%2C0%2C1366%2C768/sign=edb1329c8026cffc692abbb18f3771f3/c2cec3fdfc0392458c7ca50a8594a4c27c1e25ed.jpg"]];
-    [photos addObject:photo];
     
     
-    LWPhotoBrowser *browser = [[LWPhotoBrowser alloc] init];
-    browser.photos = photos;
+    LWPhotoBrowser *browser = [[LWPhotoBrowser alloc] initWithPhotos:photos];
     [self.navigationController pushViewController:browser animated:YES];
 }
 

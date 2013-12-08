@@ -54,7 +54,6 @@
 
 - (void)initialize {
     
-    
     self.contentSize = self.frame.size;
     self.delegate = self;
     self.minimumZoomScale = 1.0;
@@ -79,13 +78,30 @@
 }
 
 
-- (void)setPhoto:(LWPhoto *)photo {
-    _photo = photo;
-    _imageView.image = _photo.displayImage;
-    if (_imageView.image == nil) {
-        [self addSubview:_progressHUD];
-        [_progressHUD show:YES];
+- (void)setImage:(UIImage *)image {
+    if (self.zoomScale > 1) {
+        self.zoomScale = 1.0;
     }
+    _imageView.image = image;
+}
+
+
+- (void)setPhoto:(LWPhoto *)photo {
+    
+    _photo = photo;
+    
+    if (_photo != nil) {
+        [self setImage:_photo.displayImage];
+        if (_imageView.image == nil) {
+            [self addSubview:_progressHUD];
+            [_progressHUD show:YES];
+        }
+    }
+    else {
+        _imageView.image = nil;
+        [_progressHUD hide:YES];
+    }
+    
 }
 
 
@@ -95,7 +111,6 @@
     }
     
     CGFloat progress = [[[o userInfo] objectForKey:@"progress"] floatValue];
-    NSLog(@"progress: %f", progress);
     _progressHUD.progress = progress;
 }
 
@@ -104,7 +119,7 @@
         return;
     }
 
-    _imageView.image = self.photo.displayImage;
+    [self setImage:_photo.displayImage];
     [_progressHUD hide:YES afterDelay:0.5];
 }
 
@@ -122,15 +137,13 @@
 
 #pragma mark
 - (void)zoomFromPoint:(CGPoint)point {
-    
+
     if (self.zoomScale > 1.0) {
         [self setZoomScale:self.minimumZoomScale animated:YES];
     }
     else {
         
-        NSLog(@"point: %@", NSStringFromCGPoint(point));
         CGPoint center = [_imageView convertPoint:point fromView:self];
-        NSLog(@"center: %@", NSStringFromCGPoint(center));
         CGRect zoomRect = [self zoomRectForScale:self.maximumZoomScale withCenter:center];
         [self zoomToRect:zoomRect animated:YES];
     }

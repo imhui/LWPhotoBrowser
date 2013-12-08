@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		D88BC72018521977000AE5FD /* LWZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BC71F18521977000AE5FD /* LWZoomImageView.m */; };
 		D88BC723185227C8000AE5FD /* LWCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BC722185227C8000AE5FD /* LWCaptionView.m */; };
-		D8A6E3E91853079900E3C9CB /* MBProgressHUD_37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A6E3E71853079900E3C9CB /* MBProgressHUD_37x-Checkmark.png */; };
-		D8A6E3EA1853079900E3C9CB /* MBProgressHUD_37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A6E3E81853079900E3C9CB /* MBProgressHUD_37x-Checkmark@2x.png */; };
 		D8BD42A21851EFCE003840CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD42A11851EFCE003840CF /* Foundation.framework */; };
 		D8BD42A41851EFCE003840CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD42A31851EFCE003840CF /* CoreGraphics.framework */; };
 		D8BD42A61851EFCE003840CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD42A51851EFCE003840CF /* UIKit.framework */; };
@@ -28,6 +26,12 @@
 		D8BD42EE1851EFF6003840CF /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BD42D71851EFF6003840CF /* MBProgressHUD.m */; };
 		D8BD42FA1851EFFD003840CF /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BD42F91851EFFD003840CF /* MenuViewController.m */; };
 		D8BD42FD1851F365003840CF /* LWPhotoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BD42FC1851F365003840CF /* LWPhotoImageView.m */; };
+		D8EA1957185462E000FA5ED7 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8EA1951185462E000FA5ED7 /* 5.jpg */; };
+		D8EA1958185462E000FA5ED7 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8EA1952185462E000FA5ED7 /* 2.jpg */; };
+		D8EA1959185462E000FA5ED7 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8EA1953185462E000FA5ED7 /* 4.jpg */; };
+		D8EA195A185462E000FA5ED7 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8EA1954185462E000FA5ED7 /* 1.jpg */; };
+		D8EA195B185462E000FA5ED7 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8EA1955185462E000FA5ED7 /* 6.jpg */; };
+		D8EA195C185462E000FA5ED7 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8EA1956185462E000FA5ED7 /* 3.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +49,6 @@
 		D88BC71F18521977000AE5FD /* LWZoomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWZoomImageView.m; sourceTree = "<group>"; };
 		D88BC721185227C8000AE5FD /* LWCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCaptionView.h; sourceTree = "<group>"; };
 		D88BC722185227C8000AE5FD /* LWCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCaptionView.m; sourceTree = "<group>"; };
-		D8A6E3E71853079900E3C9CB /* MBProgressHUD_37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MBProgressHUD_37x-Checkmark.png"; sourceTree = "<group>"; };
-		D8A6E3E81853079900E3C9CB /* MBProgressHUD_37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MBProgressHUD_37x-Checkmark@2x.png"; sourceTree = "<group>"; };
 		D8BD429E1851EFCE003840CF /* LWPhotoBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LWPhotoBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BD42A11851EFCE003840CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D8BD42A31851EFCE003840CF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -73,6 +75,12 @@
 		D8BD42F91851EFFD003840CF /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		D8BD42FB1851F365003840CF /* LWPhotoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPhotoImageView.h; sourceTree = "<group>"; };
 		D8BD42FC1851F365003840CF /* LWPhotoImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPhotoImageView.m; sourceTree = "<group>"; };
+		D8EA1951185462E000FA5ED7 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		D8EA1952185462E000FA5ED7 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		D8EA1953185462E000FA5ED7 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		D8EA1954185462E000FA5ED7 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		D8EA1955185462E000FA5ED7 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
+		D8EA1956185462E000FA5ED7 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +146,12 @@
 				D8BD42F91851EFFD003840CF /* MenuViewController.m */,
 				D8BD42B01851EFCE003840CF /* AppDelegate.h */,
 				D8BD42B11851EFCE003840CF /* AppDelegate.m */,
+				D8EA1951185462E000FA5ED7 /* 5.jpg */,
+				D8EA1952185462E000FA5ED7 /* 2.jpg */,
+				D8EA1953185462E000FA5ED7 /* 4.jpg */,
+				D8EA1954185462E000FA5ED7 /* 1.jpg */,
+				D8EA1955185462E000FA5ED7 /* 6.jpg */,
+				D8EA1956185462E000FA5ED7 /* 3.jpg */,
 				D8BD42B31851EFCE003840CF /* Images.xcassets */,
 				D8BD42A81851EFCE003840CF /* Supporting Files */,
 			);
@@ -195,8 +209,6 @@
 			children = (
 				D8BD42D61851EFF6003840CF /* MBProgressHUD.h */,
 				D8BD42D71851EFF6003840CF /* MBProgressHUD.m */,
-				D8A6E3E71853079900E3C9CB /* MBProgressHUD_37x-Checkmark.png */,
-				D8A6E3E81853079900E3C9CB /* MBProgressHUD_37x-Checkmark@2x.png */,
 			);
 			path = MBProgressHUD;
 			sourceTree = "<group>";
@@ -276,10 +288,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8EA195B185462E000FA5ED7 /* 6.jpg in Resources */,
+				D8EA1957185462E000FA5ED7 /* 5.jpg in Resources */,
 				D8BD42AC1851EFCE003840CF /* InfoPlist.strings in Resources */,
+				D8EA1958185462E000FA5ED7 /* 2.jpg in Resources */,
+				D8EA195A185462E000FA5ED7 /* 1.jpg in Resources */,
+				D8EA1959185462E000FA5ED7 /* 4.jpg in Resources */,
 				D8BD42B41851EFCE003840CF /* Images.xcassets in Resources */,
-				D8A6E3E91853079900E3C9CB /* MBProgressHUD_37x-Checkmark.png in Resources */,
-				D8A6E3EA1853079900E3C9CB /* MBProgressHUD_37x-Checkmark@2x.png in Resources */,
+				D8EA195C185462E000FA5ED7 /* 3.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,7 +446,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LWPhotoBrowser/LWPhotoBrowser-Prefix.pch";
 				INFOPLIST_FILE = "LWPhotoBrowser/LWPhotoBrowser-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -445,7 +461,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LWPhotoBrowser/LWPhotoBrowser-Prefix.pch";
 				INFOPLIST_FILE = "LWPhotoBrowser/LWPhotoBrowser-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

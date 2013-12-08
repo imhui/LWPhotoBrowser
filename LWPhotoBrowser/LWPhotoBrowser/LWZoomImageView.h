@@ -14,6 +14,7 @@
 @interface LWZoomImageView : UIScrollView
 
 @property (nonatomic, strong) LWPhoto *photo;
+           
 + (LWZoomImageView *)zoomViewWithPhoto:(LWPhoto *)photo;
 - (void)zoomFromPoint:(CGPoint)point;
 
