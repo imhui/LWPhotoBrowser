@@ -9,8 +9,8 @@ LWPhotoBrowser looks like the photo browser of the native Photos app in iOS. It 
 
 
 
-![screenshot1](https://github.com/imhui/LWPhotoBrowser/blob/master/screenshots/1.png)
-![screenshot2](https://github.com/imhui/LWPhotoBrowser/blob/master/screenshots/2.png)
+![screenshot1](https://raw.github.com/imhui/LWPhotoBrowser/master/screenshots/1.png)
+![screenshot2](https://raw.github.com/imhui/LWPhotoBrowser/master/screenshots/2.png)
 
 #### init LWPhoto
 ```
