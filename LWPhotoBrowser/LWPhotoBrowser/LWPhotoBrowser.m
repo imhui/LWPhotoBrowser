@@ -29,6 +29,8 @@
     UIBarStyle _lastBarStyle;
     UIStatusBarStyle _lastStatusBarStyle;
     
+    NSInteger _currentIndex;
+    
     
 }
 
@@ -80,6 +82,7 @@
     self.toolbarItems = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
                           [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(toolbarActionButtonItemAction:)]];
 
+    self.view.backgroundColor = [UIColor blackColor];
     _pagingScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     _pagingScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _pagingScrollView.pagingEnabled = YES;
@@ -254,7 +257,8 @@
 }
 
 - (NSInteger)visiblePhotoIndex {
-    return _pagingScrollView.contentOffset.x / CGRectGetWidth(_pagingScrollView.bounds);
+    _currentIndex = _pagingScrollView.contentOffset.x / CGRectGetWidth(_pagingScrollView.bounds);
+    return _currentIndex;
 }
 
 
@@ -300,6 +304,7 @@
 
 - (void)layoutPhotos {
     
+    _pagingScrollView.frame = self.view.bounds;
     _pagingScrollView.contentSize = CGSizeMake(self.photos.count * CGRectGetWidth(_pagingScrollView.bounds), 0);
     
     for (NSInteger i = 0; i < self.photos.count && i < 3; i++) {
@@ -432,6 +437,42 @@
     
     [self adjustPagingViewPosition];
     [self updateTitle];
+}
+
+
+#pragma mark - Rotation
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    
+    [_centerImageView reset];
+    [self performSelector:@selector(pagingViewRotateToOrientation) withObject:nil afterDelay:0];
+    
+}
+
+
+- (void)pagingViewRotateToOrientation {
+    
+    _pagingScrollView.frame = self.view.bounds;
+    
+    CGRect leftRect = _leftImageView.frame;
+    CGRect centerRect = _centerImageView.frame;
+    CGRect rightRect = _rightImageView.frame;
+    
+    centerRect.size = _pagingScrollView.bounds.size;
+    leftRect.size = centerRect.size;
+    rightRect.size = centerRect.size;
+    
+    centerRect.origin.x = CGRectGetWidth(_pagingScrollView.bounds) * _currentIndex;
+    leftRect.origin.x = CGRectGetMinX(centerRect) - CGRectGetWidth(centerRect);
+    rightRect.origin.x = CGRectGetMaxX(centerRect);
+    
+    _centerImageView.frame = centerRect;
+    _leftImageView.frame = leftRect;
+    _rightImageView.frame = rightRect;
+    
+    _pagingScrollView.contentSize = CGSizeMake(self.photos.count * CGRectGetWidth(_pagingScrollView.bounds), 0);
+    [_pagingScrollView setContentOffset:CGPointMake(CGRectGetMinX(centerRect), 0) animated:NO];
+    
+    _captionView.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds) - CGRectGetHeight(self.navigationController.toolbar.bounds) - 80, CGRectGetWidth(self.view.bounds), 80);
 }
 
 

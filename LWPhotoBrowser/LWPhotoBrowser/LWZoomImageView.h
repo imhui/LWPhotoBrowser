@@ -17,5 +17,6 @@
            
 + (LWZoomImageView *)zoomViewWithPhoto:(LWPhoto *)photo;
 - (void)zoomFromPoint:(CGPoint)point;
+- (void)reset;
 
 @end

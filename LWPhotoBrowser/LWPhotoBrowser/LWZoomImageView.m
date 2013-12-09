@@ -92,6 +92,7 @@
     
     if (_photo != nil) {
         [self setImage:_photo.displayImage];
+        _imageView.frame = self.bounds;
         if (_imageView.image == nil) {
             [self addSubview:_progressHUD];
             [_progressHUD show:YES];
@@ -133,6 +134,12 @@
     _progressHUD.mode = MBProgressHUDModeText;
     _progressHUD.labelText = NSLocalizedString(@"Error", nil);
     
+}
+
+
+- (void)reset {
+    [self setZoomScale:self.minimumZoomScale animated:NO];
+    _imageView.frame = self.bounds;
 }
 
 #pragma mark
