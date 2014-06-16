@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D88BC72018521977000AE5FD /* LWZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BC71F18521977000AE5FD /* LWZoomImageView.m */; };
 		D88BC723185227C8000AE5FD /* LWCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BC722185227C8000AE5FD /* LWCaptionView.m */; };
+		D8AA029B194ED84900F3D2E8 /* LWZoomingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AA029A194ED84900F3D2E8 /* LWZoomingView.m */; };
 		D8BD42A21851EFCE003840CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD42A11851EFCE003840CF /* Foundation.framework */; };
 		D8BD42A41851EFCE003840CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD42A31851EFCE003840CF /* CoreGraphics.framework */; };
 		D8BD42A61851EFCE003840CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD42A51851EFCE003840CF /* UIKit.framework */; };
@@ -45,10 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D88BC71E18521977000AE5FD /* LWZoomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWZoomImageView.h; sourceTree = "<group>"; };
-		D88BC71F18521977000AE5FD /* LWZoomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWZoomImageView.m; sourceTree = "<group>"; };
 		D88BC721185227C8000AE5FD /* LWCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCaptionView.h; sourceTree = "<group>"; };
 		D88BC722185227C8000AE5FD /* LWCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCaptionView.m; sourceTree = "<group>"; };
+		D8AA0299194ED84900F3D2E8 /* LWZoomingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWZoomingView.h; sourceTree = "<group>"; };
+		D8AA029A194ED84900F3D2E8 /* LWZoomingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWZoomingView.m; sourceTree = "<group>"; };
 		D8BD429E1851EFCE003840CF /* LWPhotoBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LWPhotoBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BD42A11851EFCE003840CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D8BD42A31851EFCE003840CF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -190,10 +190,10 @@
 		D8BD42D01851EFF6003840CF /* LWPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				D8AA0299194ED84900F3D2E8 /* LWZoomingView.h */,
+				D8AA029A194ED84900F3D2E8 /* LWZoomingView.m */,
 				D8BD42D11851EFF6003840CF /* LWPhoto.h */,
 				D8BD42D21851EFF6003840CF /* LWPhoto.m */,
-				D88BC71E18521977000AE5FD /* LWZoomImageView.h */,
-				D88BC71F18521977000AE5FD /* LWZoomImageView.m */,
 				D8BD42FB1851F365003840CF /* LWPhotoImageView.h */,
 				D8BD42FC1851F365003840CF /* LWPhotoImageView.m */,
 				D88BC721185227C8000AE5FD /* LWCaptionView.h */,
@@ -314,13 +314,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D88BC72018521977000AE5FD /* LWZoomImageView.m in Sources */,
 				D8BD42FA1851EFFD003840CF /* MenuViewController.m in Sources */,
 				D88BC723185227C8000AE5FD /* LWCaptionView.m in Sources */,
 				D8BD42ED1851EFF6003840CF /* LWPhotoBrowser.m in Sources */,
 				D8BD42FD1851F365003840CF /* LWPhotoImageView.m in Sources */,
 				D8BD42EC1851EFF6003840CF /* LWPhoto.m in Sources */,
 				D8BD42EE1851EFF6003840CF /* MBProgressHUD.m in Sources */,
+				D8AA029B194ED84900F3D2E8 /* LWZoomingView.m in Sources */,
 				D8BD42B21851EFCE003840CF /* AppDelegate.m in Sources */,
 				D8BD42AE1851EFCE003840CF /* main.m in Sources */,
 			);
