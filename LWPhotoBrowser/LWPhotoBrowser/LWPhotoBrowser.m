@@ -57,7 +57,6 @@
         if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
             self.automaticallyAdjustsScrollViewInsets = NO;
         }
-        self.wantsFullScreenLayout = YES;
         self.hidesBottomBarWhenPushed = YES;
         
     }
@@ -76,7 +75,6 @@
     self.navigationController.toolbarHidden = NO;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     self.navigationController.toolbar.barStyle = UIBarStyleBlackTranslucent;
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
     
     self.toolbarItems = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
                           [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(toolbarActionButtonItemAction:)]];
