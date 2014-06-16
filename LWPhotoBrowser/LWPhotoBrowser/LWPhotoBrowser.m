@@ -8,12 +8,11 @@
 
 #import "LWPhotoBrowser.h"
 #import "MBProgressHUD.h"
-#import "LWPhotoImageView.h"
 #import "LWPhoto.h"
-#import "LWZoomImageView.h"
 #import "LWCaptionView.h"
 #import "MBProgressHUD.h"
 #import <QuartzCore/QuartzCore.h>
+#import "LWZoomingView.h"
 
 
 @interface LWPhotoBrowser () <UIScrollViewDelegate, UIActionSheetDelegate> {
@@ -21,9 +20,9 @@
     LWCaptionView *_captionView;
     BOOL _shouldHideStatusBar;
     
-    LWZoomImageView *_leftImageView;
-    LWZoomImageView *_centerImageView;
-    LWZoomImageView *_rightImageView;
+    LWZoomingView *_leftImageView;
+    LWZoomingView *_centerImageView;
+    LWZoomingView *_rightImageView;
     CGPoint _lastContentOffset;
     
     UIBarStyle _lastBarStyle;
@@ -107,9 +106,9 @@
     [singleTapGesture requireGestureRecognizerToFail:doubleTapGesture];
     
     
-    _leftImageView = [[LWZoomImageView alloc] init];
-    _centerImageView = [[LWZoomImageView alloc] init];
-    _rightImageView = [[LWZoomImageView alloc] init];
+    _leftImageView = [[LWZoomingView alloc] init];
+    _centerImageView = [[LWZoomingView alloc] init];
+    _rightImageView = [[LWZoomingView alloc] init];
     
     _leftImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _centerImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -158,7 +157,7 @@
 
 - (void)doubleTapAction:(UITapGestureRecognizer *)gestureRecognizer {
     
-    LWZoomImageView *zoomView = [self visibleImageView];
+    LWZoomingView *zoomView = [self visibleImageView];
     CGPoint point = [gestureRecognizer locationInView:zoomView];
     [zoomView zoomFromPoint:point];
     
@@ -262,9 +261,9 @@
 }
 
 
-- (LWZoomImageView *)visibleImageView {
+- (LWZoomingView *)visibleImageView {
     
-    LWZoomImageView *imageView = _centerImageView;
+    LWZoomingView *imageView = _centerImageView;
     if (self.photos.count <= 3) {
         NSInteger index = [self visiblePhotoIndex];
         switch (index) {
@@ -309,7 +308,7 @@
     
     for (NSInteger i = 0; i < self.photos.count && i < 3; i++) {
         LWPhoto *photo = self.photos[i];
-        LWZoomImageView *imageView = nil;
+        LWZoomingView *imageView = nil;
         switch (i) {
             case 0:
                 imageView = _centerImageView;
@@ -334,7 +333,7 @@
 
 - (void)resetInvisibleImageViewZooomScale {
     
-    LWZoomImageView *visibleView = [self visibleImageView];
+    LWZoomingView *visibleView = [self visibleImageView];
     if (visibleView == _leftImageView) {
         [_centerImageView setZoomScale:_centerImageView.minimumZoomScale animated:YES];
         [_rightImageView setZoomScale:_rightImageView.minimumZoomScale animated:YES];
@@ -352,7 +351,7 @@
 
 
 /**
- *  adjust LWZoomImageView position for reuse
+ *  adjust LWZoomingView position for reuse
  */
 - (void)adjustPagingViewPosition {
     
@@ -381,7 +380,7 @@
             rect.origin.x = CGRectGetMaxX(_rightImageView.frame);
             _leftImageView.frame = rect;
             
-            LWZoomImageView *tmpView = _centerImageView;
+            LWZoomingView *tmpView = _centerImageView;
             _centerImageView = _rightImageView;
             _rightImageView = _leftImageView;
             _leftImageView = tmpView;
@@ -402,7 +401,7 @@
             _rightImageView.frame = rect;
             
             
-            LWZoomImageView *tmpView = _centerImageView;
+            LWZoomingView *tmpView = _centerImageView;
             _centerImageView = _leftImageView;
             _leftImageView = _rightImageView;
             _rightImageView = tmpView;
@@ -443,7 +442,6 @@
 #pragma mark - Rotation
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     
-    [_centerImageView reset];
     [self performSelector:@selector(pagingViewRotateToOrientation) withObject:nil afterDelay:0];
     
 }
