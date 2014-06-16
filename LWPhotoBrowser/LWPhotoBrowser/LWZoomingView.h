@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class LWPhoto;
+@class LWPhotoBrowser;
 @interface LWZoomingView : UIScrollView
 
 @property (nonatomic, strong) LWPhoto *photo;
 
 + (LWZoomingView *)zoomViewWithPhoto:(LWPhoto *)photo;
+- (instancetype)initWithPhotoBrowser:(LWPhotoBrowser *)photoBrowser;
 - (void)zoomFromPoint:(CGPoint)point;
 
 @end

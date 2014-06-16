@@ -93,20 +93,9 @@
     _captionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     [self.view addSubview:_captionView];
     
-    UITapGestureRecognizer *singleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapAction:)];
-    singleTapGesture.numberOfTapsRequired = 1;
-    [_pagingScrollView addGestureRecognizer:singleTapGesture];
-    
-    UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapAction:)];
-    doubleTapGesture.numberOfTapsRequired = 2;
-    [_pagingScrollView addGestureRecognizer:doubleTapGesture];
-    
-    [singleTapGesture requireGestureRecognizerToFail:doubleTapGesture];
-    
-    
-    _leftImageView = [[LWZoomingView alloc] init];
-    _centerImageView = [[LWZoomingView alloc] init];
-    _rightImageView = [[LWZoomingView alloc] init];
+    _leftImageView = [[LWZoomingView alloc] initWithPhotoBrowser:self];
+    _centerImageView = [[LWZoomingView alloc] initWithPhotoBrowser:self];
+    _rightImageView = [[LWZoomingView alloc] initWithPhotoBrowser:self];
     
     _leftImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _centerImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -141,16 +130,13 @@
     [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
-#pragma mark - Gesture Action
-- (void)singleTapAction:(UITapGestureRecognizer *)gestureRecognizer {
-
+- (void)triggerControls {
     if (self.navigationController.navigationBarHidden) {
         [self showToolbar];
     }
     else {
         [self hideToolbar];
     }
-    
 }
 
 - (void)doubleTapAction:(UITapGestureRecognizer *)gestureRecognizer {

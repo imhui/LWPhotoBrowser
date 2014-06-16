@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSArray *photos;
 
 - (id)initWithPhotos:(NSArray *)photos;
+- (void)triggerControls;
 
 @end

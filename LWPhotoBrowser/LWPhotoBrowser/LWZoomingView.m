@@ -9,6 +9,7 @@
 #import "LWZoomingView.h"
 #import "MBProgressHUD.h"
 #import "LWPhoto.h"
+#import "LWPhotoBrowser.h"
 
 @interface LWZoomingView () <UIScrollViewDelegate> {
     
@@ -18,15 +19,24 @@
     CGFloat _scaleToRestoreAfterResize;
     
     MBProgressHUD *_progressHUD;
+    LWPhotoBrowser *_photoBrowser;
 }
 
 @end
 
 @implementation LWZoomingView
 
-
 + (LWZoomingView *)zoomViewWithPhoto:(LWPhoto *)photo {
     return [[self alloc] initWithPhoto:photo];
+}
+
+- (instancetype)initWithPhotoBrowser:(LWPhotoBrowser *)photoBrowser
+{
+    self = [self initWithFrame:CGRectZero];
+    if (self) {
+        _photoBrowser = photoBrowser;
+    }
+    return self;
 }
 
 - (void)dealloc
@@ -139,7 +149,21 @@
     
 }
 
+#pragma mark 
+- (void)singleTapOnZoomView:(UITapGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        [_photoBrowser triggerControls];
+    }
+}
 
+- (void)doubleTapOnZoomView:(UITapGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        CGPoint point = [sender locationInView:self];
+        [self zoomFromPoint:point];
+    }
+}
+
+#pragma mark
 - (void)setPhoto:(LWPhoto *)photo {
     
     _photo = photo;
@@ -173,22 +197,16 @@
     _zoomView.userInteractionEnabled = YES;
     [self addSubview:_zoomView];
     
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapOnZoomView:)];
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapOnZoomView:)];
+    doubleTap.numberOfTapsRequired = 2;
+    [singleTap requireGestureRecognizerToFail:doubleTap];
+    
+    [_zoomView addGestureRecognizer:singleTap];
+    [_zoomView addGestureRecognizer:doubleTap];
+    
+    
     [self configureForImageSize:image.size];
-}
-
-
-- (void)doubleTapOnZoomView:(UITapGestureRecognizer *)sender {
-    
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        if (self.zoomScale > self.minimumZoomScale) {
-            [self setZoomScale:self.minimumZoomScale animated:YES];
-        }
-        else {
-            CGRect zoomRect = [self zoomRectForScale:self.maximumZoomScale withCenter:[sender locationInView:_zoomView]];
-            [self zoomToRect:zoomRect animated:YES];
-        }
-    }
-    
 }
 
 - (void)zoomFromPoint:(CGPoint)point {
