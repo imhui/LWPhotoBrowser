@@ -20,6 +20,8 @@
     
     MBProgressHUD *_progressHUD;
     LWPhotoBrowser *_photoBrowser;
+    
+    UITapGestureRecognizer *_singleTapGesture;
 }
 
 @end
@@ -118,6 +120,22 @@
     }
 }
 
+- (void)setEnableSingleTap:(BOOL)enableSingleTap {
+    
+    _enableSingleTap = enableSingleTap;
+    if (_enableSingleTap) {
+        if (_singleTapGesture == nil) {
+            _singleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapOnZoomView:)];
+            [self addGestureRecognizer:_singleTapGesture];
+        }
+    }
+    else {
+        if (_singleTapGesture != nil) {
+            [self removeGestureRecognizer:_singleTapGesture];
+        }
+    }
+}
+
 
 #pragma mark - Notification
 - (void)photoDownloadProgressChanged:(NSNotification *)o {
@@ -205,9 +223,7 @@
     [_zoomView addGestureRecognizer:doubleTap];
     
     if (self.enableSingleTap) {
-        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapOnZoomView:)];
-        [singleTap requireGestureRecognizerToFail:doubleTap];
-        [self addGestureRecognizer:singleTap];
+        [_singleTapGesture requireGestureRecognizerToFail:doubleTap];
     }
     
     [self configureForImageSize:image.size];
