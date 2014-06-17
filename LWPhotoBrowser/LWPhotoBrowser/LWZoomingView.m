@@ -58,11 +58,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.backgroundColor = [UIColor blackColor];
         self.showsVerticalScrollIndicator = NO;
         self.showsHorizontalScrollIndicator = NO;
         self.bouncesZoom = YES;
         self.decelerationRate = UIScrollViewDecelerationRateFast;
         self.delegate = self;
+        self.enableSingleTap = YES;
         
         _progressHUD = [[MBProgressHUD alloc] initWithView:self];
         _progressHUD.mode = MBProgressHUDModeAnnularDeterminate;
@@ -197,14 +199,16 @@
     _zoomView.userInteractionEnabled = YES;
     [self addSubview:_zoomView];
     
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapOnZoomView:)];
+    
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapOnZoomView:)];
     doubleTap.numberOfTapsRequired = 2;
-    [singleTap requireGestureRecognizerToFail:doubleTap];
-    
-    [_zoomView addGestureRecognizer:singleTap];
     [_zoomView addGestureRecognizer:doubleTap];
     
+    if (self.enableSingleTap) {
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapOnZoomView:)];
+        [singleTap requireGestureRecognizerToFail:doubleTap];
+        [self addGestureRecognizer:singleTap];
+    }
     
     [self configureForImageSize:image.size];
 }
