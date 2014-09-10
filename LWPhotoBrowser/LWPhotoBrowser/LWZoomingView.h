@@ -13,10 +13,8 @@
 @interface LWZoomingView : UIScrollView
 
 @property (nonatomic, strong) LWPhoto *photo;
-@property (nonatomic, assign) BOOL enableSingleTap;
 
 + (LWZoomingView *)zoomViewWithPhoto:(LWPhoto *)photo;
 - (instancetype)initWithPhotoBrowser:(LWPhotoBrowser *)photoBrowser;
-- (void)zoomFromPoint:(CGPoint)point;
 
 @end

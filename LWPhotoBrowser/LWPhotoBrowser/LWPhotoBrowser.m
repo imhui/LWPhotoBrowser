@@ -139,14 +139,6 @@
     }
 }
 
-- (void)doubleTapAction:(UITapGestureRecognizer *)gestureRecognizer {
-    
-    LWZoomingView *zoomView = [self visibleImageView];
-    CGPoint point = [gestureRecognizer locationInView:zoomView];
-    [zoomView zoomFromPoint:point];
-    
-}
-
 - (void)toolbarActionButtonItemAction:(id)sender {
     
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
@@ -306,8 +298,8 @@
                 break;
         }
         
-        imageView.photo = photo;
         imageView.frame = CGRectMake(CGRectGetWidth(_pagingScrollView.bounds) * i, 0, CGRectGetWidth(_pagingScrollView.bounds), CGRectGetHeight(_pagingScrollView.bounds));
+        imageView.photo = photo;
         [_pagingScrollView addSubview:imageView];
     }
     
