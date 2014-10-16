@@ -10,29 +10,29 @@
 	<string>LWPhotoBrowser</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>1721886E-C199-4FC2-A640-D6837EA293F3</key>
+		<key>CBF7B1E71FA8ABB465316CB60CC71B1828320CCE</key>
 		<string>https://github.com/imhui/LWPhotoBrowser.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>LWPhotoBrowser.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1721886E-C199-4FC2-A640-D6837EA293F3</key>
+		<key>CBF7B1E71FA8ABB465316CB60CC71B1828320CCE</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/imhui/LWPhotoBrowser.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1721886E-C199-4FC2-A640-D6837EA293F3</string>
+	<string>CBF7B1E71FA8ABB465316CB60CC71B1828320CCE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1721886E-C199-4FC2-A640-D6837EA293F3</string>
+			<string>CBF7B1E71FA8ABB465316CB60CC71B1828320CCE</string>
 			<key>IDESourceControlWCCName</key>
 			<string>LWPhotoBrowser</string>
 		</dict>

@@ -221,7 +221,7 @@
 - (void)updateTitle {
     
     NSInteger index = [self visiblePhotoIndex];
-    self.title = [NSString stringWithFormat:@"%d / %d", index + 1, self.photos.count];
+    self.title = [NSString stringWithFormat:@"%ld / %ld", index + 1, self.photos.count];
     [self updateCaptionView];
 }
 
