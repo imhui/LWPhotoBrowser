@@ -52,7 +52,8 @@
 - (id)initWithPhotos:(NSArray *)photos photoIndex:(NSInteger)index {
     self = [self initWithPhotos:photos];
     if (self) {
-        _currentIndex = index;
+        _currentIndex = index >= 0 ? index : 0;
+        _currentIndex = index < photos.count ? index : photos.count - 1;
     }
     return self;
 }
@@ -74,8 +75,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-
+    // Do any additional setup after loading the view.
+    
     
     _lastBarStyle = self.navigationController.navigationBar.barStyle;
     _lastStatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
@@ -86,7 +87,7 @@
     
     self.toolbarItems = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
                           [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(toolbarActionButtonItemAction:)]];
-
+    
     self.view.backgroundColor = [UIColor blackColor];
     _pagingScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     _pagingScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -264,7 +265,7 @@
         }
         
     }
-
+    
     return imageView;
 }
 
@@ -291,17 +292,24 @@
     _pagingScrollView.contentSize = CGSizeMake(self.photos.count * CGRectGetWidth(_pagingScrollView.bounds), 0);
     
     NSInteger index = _currentIndex - 1;
-    if (index < 0) {
+    NSInteger distance = _currentIndex + 1;
+    if (_currentIndex == 0) {
         index = 0;
+        distance = 2;
+        
+    }
+    else if (_currentIndex == (self.photos.count - 1)) {
+        index = _currentIndex - 2;
+        distance = _currentIndex;
     }
     
-    for (; index < self.photos.count && index < (_currentIndex + 2); index++) {
+    for (; index < self.photos.count && index <= distance; index++) {
         
         LWZoomingView *imageView = nil;
         if (index == _currentIndex) {
             imageView = _centerImageView;
         }
-        else if (index == (_currentIndex + 1)) {
+        else if (index == (_currentIndex + 1) || index == (_currentIndex - 2)) {
             imageView = _rightImageView;
         }
         else {
@@ -314,7 +322,6 @@
         LWPhoto *photo = self.photos[index];
         imageView.photo = photo;
         
-        NSLog(@"image frame: %@", NSStringFromCGRect(imageView.frame));
     }
     
     _pagingScrollView.contentOffset = CGPointMake(_currentIndex * CGRectGetWidth(_pagingScrollView.bounds), 0);
@@ -398,7 +405,7 @@
             _rightImageView = tmpView;
             
             _leftImageView.photo = [self photoWithContentOffset:CGPointMake(CGRectGetMinX(_leftImageView.frame), 0)];
-
+            
         }
         
     }
