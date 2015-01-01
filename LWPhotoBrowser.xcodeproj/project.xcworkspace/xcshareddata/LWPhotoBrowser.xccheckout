@@ -14,7 +14,7 @@
 		<string>https://github.com/imhui/LWPhotoBrowser.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>LWPhotoBrowser.xcodeproj/project.xcworkspace</string>
+	<string>LWPhotoBrowser.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>CBF7B1E71FA8ABB465316CB60CC71B1828320CCE</key>

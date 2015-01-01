@@ -49,6 +49,14 @@
     return self;
 }
 
+- (id)initWithPhotos:(NSArray *)photos photoIndex:(NSInteger)index {
+    self = [self initWithPhotos:photos];
+    if (self) {
+        _currentIndex = index;
+    }
+    return self;
+}
+
 - (id)init
 {
     self = [super init];
@@ -58,7 +66,7 @@
             self.automaticallyAdjustsScrollViewInsets = NO;
         }
         self.hidesBottomBarWhenPushed = YES;
-        
+        _currentIndex = 0;
     }
     return self;
 }
@@ -282,27 +290,34 @@
     _pagingScrollView.frame = self.view.bounds;
     _pagingScrollView.contentSize = CGSizeMake(self.photos.count * CGRectGetWidth(_pagingScrollView.bounds), 0);
     
-    for (NSInteger i = 0; i < self.photos.count && i < 3; i++) {
-        LWPhoto *photo = self.photos[i];
-        LWZoomingView *imageView = nil;
-        switch (i) {
-            case 0:
-                imageView = _centerImageView;
-                break;
-            case 1:
-                imageView = _rightImageView;
-                break;
-            case 2:
-                imageView = _leftImageView;
-            default:
-                break;
-        }
-        
-        imageView.frame = CGRectMake(CGRectGetWidth(_pagingScrollView.bounds) * i, 0, CGRectGetWidth(_pagingScrollView.bounds), CGRectGetHeight(_pagingScrollView.bounds));
-        imageView.photo = photo;
-        [_pagingScrollView addSubview:imageView];
+    NSInteger index = _currentIndex - 1;
+    if (index < 0) {
+        index = 0;
     }
     
+    for (; index < self.photos.count && index < (_currentIndex + 2); index++) {
+        
+        LWZoomingView *imageView = nil;
+        if (index == _currentIndex) {
+            imageView = _centerImageView;
+        }
+        else if (index == (_currentIndex + 1)) {
+            imageView = _rightImageView;
+        }
+        else {
+            imageView = _leftImageView;
+        }
+        
+        imageView.frame = CGRectMake(CGRectGetWidth(_pagingScrollView.bounds) * index, 0, CGRectGetWidth(_pagingScrollView.bounds), CGRectGetHeight(_pagingScrollView.bounds));
+        [_pagingScrollView addSubview:imageView];
+        
+        LWPhoto *photo = self.photos[index];
+        imageView.photo = photo;
+        
+        NSLog(@"image frame: %@", NSStringFromCGRect(imageView.frame));
+    }
+    
+    _pagingScrollView.contentOffset = CGPointMake(_currentIndex * CGRectGetWidth(_pagingScrollView.bounds), 0);
     [self updateTitle];
 }
 

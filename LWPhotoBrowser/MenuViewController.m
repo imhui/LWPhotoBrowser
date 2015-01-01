@@ -121,7 +121,7 @@
     
     
     
-    LWPhotoBrowser *browser = [[LWPhotoBrowser alloc] initWithPhotos:photos];
+    LWPhotoBrowser *browser = [[LWPhotoBrowser alloc] initWithPhotos:photos photoIndex:3];
     [self.navigationController pushViewController:browser animated:YES];
 }
 
